@@ -13,9 +13,9 @@ export default {
   "text-color-secondary" : "#888",                    // 次文本色
   // "disabled-color" : "#FFE9D4",                       // 失效色
   // "disable-bg": "#FFE9D4",                            // 失效色
-  "btn-disable-color": "#1890ff",                     // 按钮失效色
-  "btn-disable-bg": "#e6f7ff",                        // 按钮失效色
-  "btn-disable-border": "#e6f7ff",                    // 按钮失效色
+  "btn-disable-color": "#FFC010",                     // 按钮失效色
+  "btn-disable-bg": "#FFF8E6",                        // 按钮失效色
+  "btn-disable-border": "#FFF8E6",                    // 按钮失效色
   "border-radius-base": "3px",                        // 组件/浮层圆角
   "btn-border-radius-base": "3px",                    // 按钮圆角
   "border-color-base": "#d9d9d9",                     // 边框色

@@ -5,6 +5,7 @@ import { Avatar, Button, Icon, Menu, Dropdown } from 'antd';
 import styles from './GlobalHeaderSign.less';
 
 import { Confirm } from '@/components/Dialog/Dialog'
+import UserSignModal from '@/blocks/User/UserSignModal';
 
 @connect(state => ({
   global: state.global
@@ -21,6 +22,7 @@ export default class UserSign extends React.Component {
 
   // 切换登录注册modal状态
   setUserModal(value, key){
+    console.log(key)
     this.props.dispatch({
       type: 'global/changeSignModal',
       payload: {
@@ -46,13 +48,19 @@ export default class UserSign extends React.Component {
 
   render() {
 
+    const { isAuth } = this.props.global;
+
     return(
       <div className={styles.container}>
 
-        <Link to="/user/login">
-          <span>登录/注册</span>
+        <a>
+          <span onClick={ () => this.setUserModal(true, '1') }>登录</span>
+          <span>/</span>
+          <span onClick={ () => this.setUserModal(true, '2') }>注册</span>
           <i/>
-        </Link>
+        </a>
+
+        <UserSignModal/>
 
       </div>
     )

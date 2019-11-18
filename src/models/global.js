@@ -226,6 +226,7 @@ export default {
       };
     },
     changeSignModal(state, { payload }) {
+      console.log(payload)
       return {
         ...state,
         signModalVisible: payload.signModalVisible,

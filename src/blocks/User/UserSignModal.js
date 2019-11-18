@@ -35,7 +35,7 @@ export default class UserSignModal extends React.Component {
   render(){
 
     const { signModalVisible, signTabKey } = this.props.global;
-
+console.log(signTabKey)
     return(
       <Modal
         title=""
