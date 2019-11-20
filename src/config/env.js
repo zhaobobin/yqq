@@ -35,23 +35,23 @@ module.exports = {
   },
 
   storage: {
-    token: 'metuIndex-token',
-    lastTel: 'metuIndex-lastTel',
-    remenber: 'metuIndex-remenber',
-    routerHistory: 'metuIndex-routerHistory',
-    theme: 'metuIndex-theme',
-    currentMenu: 'metuIndex-currentMenu',
-    userCenterTabKey: 'metuIndex-userCenterTabKey',
-    perPage: 'metuIndex-perPage',
+    token: 'yqqIndex-token',
+    lastTel: 'yqqIndex-lastTel',
+    remenber: 'yqqIndex-remenber',
+    routerHistory: 'yqqIndex-routerHistory',
+    theme: 'yqqIndex-theme',
+    currentMenu: 'yqqIndex-currentMenu',
+    userCenterTabKey: 'yqqIndex-userCenterTabKey',
+    perPage: 'yqqIndex-perPage',
 
-    wechatLoginState: 'metuIndex-WechatLoginState', // 微信授权登录state
-    weiboLoginState: 'metuIndex-WeiboLoginState', // 微博授权登录state
-    qqLoginState: 'metuIndex-QqLoginState', // QQ授权登录state
+    wechatLoginState: 'yqqIndex-WechatLoginState', // 微信授权登录state
+    weiboLoginState: 'yqqIndex-WeiboLoginState', // 微博授权登录state
+    qqLoginState: 'yqqIndex-QqLoginState', // QQ授权登录state
 
-    accountAuth: 'metuIndex-accountAuth', // 帐号身份验证
-    ossToken: 'metuIndex-ossToken', // ossToken
+    accountAuth: 'yqqIndex-accountAuth', // 帐号身份验证
+    ossToken: 'yqqIndex-ossToken', // ossToken
 
-    readModel: 'metuIndex-readModel', // 阅读模式：white、black
+    readModel: 'yqqIndex-readModel', // 阅读模式：white、black
 
   },
 

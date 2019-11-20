@@ -45,13 +45,14 @@ export default class InputMobile extends React.Component {
   render(){
 
     const { value } = this.state;
-    const { autoFocus } = this.props;
+    const { autoFocus, prefix } = this.props;
 
     return(
       <Input
         size="large"
         maxLength={11}
         autoFocus={autoFocus}
+        prefix={prefix}
         autoComplete="off"
         placeholder="手机号"
         onChange={this.changeValue}

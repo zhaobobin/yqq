@@ -219,8 +219,9 @@ export default class InputSmscode extends React.Component {
           <Col xs={14} sm={14} md={16} lg={16}>
             <Input
               size="large"
-              maxLength={maxLength}
               autoComplete="off"
+              prefix={this.props.prefix}
+              maxLength={maxLength}
               placeholder="短信验证码"
               onChange={this.changeValue}
               onBlur={this.handleBlur}

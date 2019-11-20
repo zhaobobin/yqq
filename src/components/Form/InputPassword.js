@@ -102,7 +102,7 @@ export default class InputPassword extends React.Component {
 
   render(){
 
-    const { placeholder, hidePsdLevel } = this.props;
+    const { placeholder, hidePsdLevel, prefix } = this.props;
     const { value, psdLevel, psdLevelStyle, minLength, maxLength } = this.state;
 
     const psdLevelVisible = hidePsdLevel ? false : this.state.psdLevelVisible
@@ -112,6 +112,7 @@ export default class InputPassword extends React.Component {
         <Input.Password
           size="large"
           autoComplete="off"
+          prefix={prefix}
           minLength={minLength}
           maxLength={maxLength}
           placeholder={placeholder || '密码'}

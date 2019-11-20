@@ -7,9 +7,17 @@
       height:70px;
       margin:0;
     }
+    .ant-input{
+      border:1px solid #D5D8E0;
+    }
+    .ant-input-lg{
+      font-size: 14px;
+    }
+    .ant-form-explain, .ant-form-extra{
+      font-size: 12px;
+    }
   }
 
-  padding-top:20px;
   position:relative;
 
   p{
@@ -19,42 +27,18 @@
   a{
     color: #333;
     &:hover{
-      color: @color_blue;
+      color: @color_yellow;
     }
     &.blue{
-      color: @color_blue;
+      color: @color_yellow;
     }
   }
 
   h4{
-    margin-bottom:20px;
-    text-align: center;
-    line-height:20px;
-    position:relative;
-    p{
-      display: inline-block;
-      padding: 0 18px;
-      background: #fff;
-      position:relative;
-      z-index:1;
-      span{
-        margin: 0 2px;
-        &.scan{
-          color: @color_blue;
-          cursor: pointer;
-        }
-      }
-    }
-    hr{
-      width:100%;
-      height:1px;
-      background: @border_color;
-      border:none;
-      position:absolute;
-      left:0;
-      top:9px;
-      z-index:0;
-    }
+    margin-bottom: 35px;
+    font-size: 22px;
+    color: #282D39;
+    font-weight:600;
   }
 
   .form{
@@ -71,7 +55,10 @@
     }
 
     .forgotPsd{
-      float:right
+      margin-top: -25px;
+      margin-bottom: 50px;
+      text-align: right;
+      font-size: 12px;
     }
 
     .loginShare{
@@ -115,17 +102,14 @@
   }
 
   .foot{
-    margin-top:20px;
-    .loginChange{
-      overflow:hidden;
-      .l{
-        float:left;
-      }
-      .r{
-        float:right;
-      }
+    margin-top: 25px;
+    text-align: center;
+    span{
+      color: #898F9C
     }
-
+    a{
+      color: @color_yellow;
+    }
   }
 
 }

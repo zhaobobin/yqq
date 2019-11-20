@@ -51,53 +51,6 @@ export default class UserLogin extends React.Component {
     })
   };
 
-  // 微信登录
-  wechatLogin = () => {
-    // this.resetForm();
-    this.setState({
-      loginType: 'scan'
-    })
-  };
-
-  // 微博登录
-  weiboLogin = () => {
-    const WeiboLoginState = Encrypt('Weibologin', ('metuwang' + Math.random()));
-    Storage.set(ENV.storage.weiboLoginState, WeiboLoginState);
-
-    let url = 'https://api.weibo.com/oauth2/authorize?';
-    let params = {
-      response_type: 'code',
-      client_id: '1779469029',
-      redirect_uri: encodeURI('http://www.metuwang.com/callback/weiboLogin'),
-      state: WeiboLoginState
-    };
-    for (let i in params) {
-      url += (i + '=' + params[i] + '&');
-    }
-    url = url.substring(0, url.lastIndexOf('&'));
-    window.location.href = url;
-    // openwindow(url, 'TencentLogin', 650, 600);
-  };
-
-  // QQ登录
-  qqLogin = () => {
-    const QqLoginState = Encrypt('Qqlogin', ('metuwang' + Math.random()));
-    Storage.set(ENV.storage.qqLoginState, QqLoginState);
-
-    let url = 'https://graph.qq.com/oauth2.0/authorize?';
-    let params = {
-      response_type: 'code',
-      client_id: '101551625',
-      redirect_uri: encodeURI('http://www.metuwang.com/callback/qqLogin'),
-      state: QqLoginState
-    };
-    for (let i in params) {
-      url += (i + '=' + params[i] + '&');
-    }
-    url = url.substring(0, url.lastIndexOf('&'));
-    window.location.href = url;
-  };
-
   //手机号
   mobileCallback = (value, err) => {
     if(err){
@@ -180,6 +133,7 @@ export default class UserLogin extends React.Component {
     let keys = loginType === 'psd' ? keys1 : keys2;
 
     this.props.form.validateFields(keys, (err, values) => {
+
       if (!err) {
         if(values.remember){
           Storage.set(ENV.storage.lastTel, values.mobile)
@@ -276,27 +230,18 @@ export default class UserLogin extends React.Component {
 
         <div className={styles.form}>
 
-          <h4>
-            <p>
-              <span>推荐使用</span>
-              <span onClick={() => this.changeLoginType('scan')} className={styles.scan}>
-                <Icon type="scan" /> 微信扫码
-              </span>
-              <span>登录 , 安全快捷</span>
-            </p>
-            <hr/>
-          </h4>
+          <h4>登录</h4>
 
-          <p className={styles.loginType}>
-            <a>
-              {
-                loginType === 'psd' ?
-                  <span onClick={() => this.changeLoginType('sms')}>短信快速登录</span>
-                  :
-                  <span onClick={() => this.changeLoginType('psd')}>账号密码登录</span>
-              }
-            </a>
-          </p>
+          {/*<p className={styles.loginType}>*/}
+            {/*<a>*/}
+              {/*{*/}
+                {/*loginType === 'psd' ?*/}
+                  {/*<span onClick={() => this.changeLoginType('sms')}>短信快速登录</span>*/}
+                  {/*:*/}
+                  {/*<span onClick={() => this.changeLoginType('psd')}>账号密码登录</span>*/}
+              {/*}*/}
+            {/*</a>*/}
+          {/*</p>*/}
 
           <Form onSubmit={this.submit}>
 
@@ -307,7 +252,12 @@ export default class UserLogin extends React.Component {
                   { required: true, message: '请输入手机号' },
                 ],
               })(
-                <InputMobile autoFocus={true} default={lastTel} callback={this.mobileCallback}/>
+                <InputMobile
+                  autoFocus={true}
+                  default={lastTel}
+                  prefix={<Icon type="user" style={{ color: '#FFC010' }} />}
+                  callback={this.mobileCallback}
+                />
               )}
             </FormItem>
 
@@ -320,7 +270,11 @@ export default class UserLogin extends React.Component {
                       { required: true, message: '请输入密码' },
                     ],
                   })(
-                    <InputPassword hidePsdLevel={true} callback={this.passwordCallback}/>
+                    <InputPassword
+                      hidePsdLevel={true}
+                      prefix={<Icon type="lock" style={{ color: '#FFC010' }} />}
+                      callback={this.passwordCallback}
+                    />
                   )}
                 </FormItem>
                 :
@@ -338,22 +292,9 @@ export default class UserLogin extends React.Component {
                 </FormItem>
             }
 
-            {
-              loginType === 'psd' ?
-                <FormItem style={{height: '40px'}}>
-                  {getFieldDecorator('remember', {
-                    valuePropName: 'checked',
-                    initialValue: this.state.remember,
-                  })(
-                    <Checkbox onChange={this.rememberChange}>记住账号</Checkbox>
-                  )}
-                  <a className={styles.forgotPsd} onClick={this.toPsdReset}>忘记密码</a><br/>
-                </FormItem>
-                :
-                <FormItem style={{height: '40px'}}>
-                  <p>注意：未注册过的手机号，系统将会自动创建新账号</p>
-                </FormItem>
-            }
+            <p className={styles.forgotPsd}>
+              <a onClick={this.toPsdReset}>忘记密码</a>
+            </p>
 
             <Button
               size="large"
@@ -373,41 +314,12 @@ export default class UserLogin extends React.Component {
 
           </Form>
 
-          <div className={styles.loginShare}>
-            <h4>
-              <p>第三方登录</p>
-              <hr/>
-            </h4>
-            <p>
-              <a className={styles.wechat} onClick={this.wechatLogin}>
-                <Icon type="wechat" />
-              </a>
-              <a className={styles.weibo} onClick={this.weiboLogin}>
-                <Icon type="weibo" />
-              </a>
-              <a className={styles.qq} onClick={this.qqLogin}>
-                <Icon type="qq" />
-              </a>
-            </p>
-          </div>
-
         </div>
 
         <div className={styles.foot}>
-          <p className={styles.loginChange}>
-            <a className={styles.l} onClick={this.toRegister}>
-              <span>注册新账号</span>
-            </a>
-            <a className={styles.r}>
-              {
-                loginType === 'psd' ?
-                  <span onClick={() => this.changeLoginType('scan')}>切换到二维码登录</span>
-                  :
-                  <span onClick={() => this.changeLoginType('psd')}>切换到账号登录</span>
-              }
-            </a>
-          </p>
+          <span>没有账号？</span><a onClick={this.toRegister}>立即注册</a>
         </div>
+
       </div>
     )
   }

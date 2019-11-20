@@ -4,12 +4,11 @@
 import React from 'react';
 import { connect } from 'dva';
 import { routerRedux } from 'dva/router';
-import { Form, Button } from 'antd';
+import { Form, Button, Icon } from 'antd';
 import { Validator, Encrypt } from '@/utils';
 import styles from './UserSign.less'
 
 import InputMobile from '@/components/Form/InputMobile'
-import InputText from '@/components/Form/InputText'
 import InputPassword from '@/components/Form/InputPassword'
 import InputSmscode from '@/components/Form/InputSmscode'
 import FormXieyi from '@/components/Form/FormXieyi'
@@ -47,12 +46,6 @@ export default class UserRegister extends React.Component {
       this.props.form.setFieldsValue({'mobile': value});
       // this.props.form.validateFields(['mobile'], (err, values) => {});
     }
-  };
-
-  //昵称
-  nicknameCallback = (value) => {
-    this.props.form.setFieldsValue({'nickname': value});
-    this.props.form.validateFields(['nickname'], (err, values) => {});
   };
 
   //短信验证码回调
@@ -175,7 +168,6 @@ export default class UserRegister extends React.Component {
     switch(status){
       case 20001: key = 'mobile'; break;
       case 20002: key = 'password'; break;
-      case 20003: key = 'nickname'; break;
       case 20004: key = 'smscode'; break;
       default: break;
     }
@@ -213,10 +205,7 @@ export default class UserRegister extends React.Component {
 
         <div className={styles.form}>
 
-          <h4>
-            <p>快速注册</p>
-            <hr/>
-          </h4>
+          <h4>注册</h4>
 
           <Form onSubmit={this.submit} className={styles.register}>
             <FormItem>
@@ -225,18 +214,10 @@ export default class UserRegister extends React.Component {
                   { required: true, message: '请输入手机号' }
                 ],
               })(
-                <InputMobile callback={this.mobileCallback}/>
-              )}
-            </FormItem>
-
-            <FormItem>
-              {getFieldDecorator('nickname', {
-                initialValue: this.props.nickname || '',
-                rules: [
-                  { required: true, message: '请输入昵称' },
-                ],
-              })(
-                <InputText defaultVaule={this.props.nickname} placeholder="昵称" callback={this.nicknameCallback}/>
+                <InputMobile
+                  prefix={<Icon type="user" style={{ color: '#FFC010' }} />}
+                  callback={this.mobileCallback}
+                />
               )}
             </FormItem>
 
@@ -246,7 +227,11 @@ export default class UserRegister extends React.Component {
                   { required: true, message: '请输入密码' },
                 ],
               })(
-                <InputPassword showPsdLevel={true} callback={this.passwordCallback}/>
+                <InputPassword
+                  showPsdLevel={true}
+                  prefix={<Icon type="lock" style={{ color: '#FFC010' }} />}
+                  callback={this.passwordCallback}
+                />
               )}
             </FormItem>
 
@@ -258,6 +243,7 @@ export default class UserRegister extends React.Component {
               })(
                 <InputSmscode
                   mobile={Validator.hasErrors(getFieldsError(['mobile'])) ? '' : getFieldValue('mobile')}
+                  prefix={<Icon type="mail" style={{ color: '#FFC010' }} />}
                   callback={this.smscodeCallback}
                 />
               )}
@@ -281,7 +267,6 @@ export default class UserRegister extends React.Component {
               disabled={
                 Validator.hasErrors(getFieldsError()) ||
                 !getFieldValue('mobile') ||
-                !getFieldValue('nickname') ||
                 !getFieldValue('password') ||
                 !getFieldValue('smscode') ||
                 !getFieldValue('xieyi')

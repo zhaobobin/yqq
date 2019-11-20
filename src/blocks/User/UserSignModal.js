@@ -4,7 +4,6 @@ import { Modal } from 'antd';
 import { ENV } from '@/utils'
 import styles from './UserSignModal.less';
 
-import logo from '@/assets/logo.png'
 import UserLogin from '@/blocks/User/UserLogin';
 import UserRegister from '@/blocks/User/UserRegister';
 
@@ -35,11 +34,11 @@ export default class UserSignModal extends React.Component {
   render(){
 
     const { signModalVisible, signTabKey } = this.props.global;
-console.log(signTabKey)
+
     return(
       <Modal
         title=""
-        width="430px"
+        width="360px"
         footer={null}
         centered={true}
         maskClosable={false}
@@ -49,10 +48,10 @@ console.log(signTabKey)
         onCancel={ () => this.setUserModal(false, "1") }
       >
         <div className={styles.content}>
-          <div className={styles.head}>
-            <img src={logo} alt="logo"/>
-            <strong>{ENV.slogan}</strong>
-          </div>
+          {/*<div className={styles.head}>*/}
+            {/*<img src={require('@/assets/com/logo.png')} alt="logo"/>*/}
+            {/*<strong>{ENV.slogan}</strong>*/}
+          {/*</div>*/}
           <div className={styles.body}>
             {
               signTabKey === '1' ?

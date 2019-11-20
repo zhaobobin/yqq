@@ -4,7 +4,7 @@ import { Row, Col } from 'antd';
 import { ENV } from '@/utils'
 import styles from './GlobalHeader.less';
 
-import logo from '@/assets/logo.png'
+import logo from '@/assets/com/logo.png'
 import GlobalHeaderMenu from '@/components/Common/GlobalHeaderMenu'
 
 export default class GlobalHeaderMin extends React.Component {

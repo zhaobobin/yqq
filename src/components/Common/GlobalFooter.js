@@ -4,7 +4,7 @@ import { Row, Col } from 'antd';
 import { ENV } from '@/utils'
 import styles from './GlobalFooter.less';
 
-import logo from '@/assets/logo.png'
+import logo from '@/assets/com/logo.png'
 
 const center = {
   xs: 22,

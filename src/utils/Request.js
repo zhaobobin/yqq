@@ -1,6 +1,6 @@
 import fetch from 'dva/fetch';
 import { notification } from 'antd';
-// import { Base64 } from 'js-base64';
+import { Base64 } from 'js-base64';
 import { ENV, Storage } from '@/utils';
 
 const codeMessage = {
@@ -77,9 +77,9 @@ export default function Request(url, options) {
   }
 
   // HttpBasicAuth
-  // if(Storage.get(ENV.storage.token)) {
-  //   newOptions.headers['Authorization'] = 'Basic ' + Base64.encode(Storage.get(ENV.storage.token) + ':'); //读取本地token
-  // }
+  if(Storage.get(ENV.storage.token)) {
+    newOptions.headers['Authorization'] = 'Basic ' + Base64.encode(Storage.get(ENV.storage.token) + ':'); //读取本地token
+  }
 
   return fetch(url, newOptions)
     .then(checkStatus)

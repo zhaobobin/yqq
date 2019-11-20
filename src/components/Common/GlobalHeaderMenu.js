@@ -66,6 +66,11 @@ export default function GlobalHeaderMenu ({navData}) {
           机构入驻
         </NavLink>
       </li>
+      {/*<li>*/}
+        {/*<NavLink to="/account" className={styles.link} activeClassName={styles.current}>*/}
+          {/*个人中心*/}
+        {/*</NavLink>*/}
+      {/*</li>*/}
     </ul>
   )
 

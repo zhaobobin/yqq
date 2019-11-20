@@ -1,0 +1,18 @@
+@import '../../theme/index.less';
+
+.container{
+
+  padding: 25px 0 34px;
+
+  :global{
+    .ant-breadcrumb > span:last-child a{
+      &:hover{
+        color: @link_hover;
+      }
+      &.active{
+        color: @color_yellow;
+      }
+    }
+  }
+
+}

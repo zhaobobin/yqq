@@ -3,14 +3,14 @@ import { Link } from 'dva/router'
 import { Row, Col } from 'antd';
 import styles from './GlobalHeader.less';
 
-import logo from '@/assets/logo.png'
+import logo from '@/assets/com/logo.png'
 import GlobalHeaderMenu from '@/components/Common/GlobalHeaderMenu'
 import GlobalHeaderSearch from '@/components/Common/GlobalHeaderSearch'
 import GlobalHeaderSign from '@/components/Common/GlobalHeaderSign'
 
 function headerIsOpacity(pathname){
   let path = pathname.split('/')[1];
-  return (path === '' || path === 'users')
+  return (path === '' || path === 'category' || path === 'users')
 }
 
 export default class GlobalHeader extends React.Component {
@@ -20,7 +20,7 @@ export default class GlobalHeader extends React.Component {
     this.state = {
       pathname: props.location.pathname,
       headerOpacity: headerIsOpacity(props.location.pathname) ? styles.opacity : '',	  //导航默认样式
-      headerFixed: props.location.pathname === '/' ? styles.abso : ''
+      headerFixed: props.location.pathname === '/' || props.location.pathname.split('/')[1] === 'category' ? styles.abso : ''
     };
   }
 
@@ -37,6 +37,10 @@ export default class GlobalHeader extends React.Component {
     switch(path){
       case '':
         // window.addEventListener('scroll', this.handleScroll, false);
+        this.setState({pathname: pathname, headerOpacity: styles.opacity, headerFixed: styles.fixed});
+        break;
+      case 'category':
+        window.removeEventListener('scroll', this.handleScroll, false);
         this.setState({pathname: pathname, headerOpacity: styles.opacity, headerFixed: styles.fixed});
         break;
       case 'users':
@@ -84,13 +88,13 @@ export default class GlobalHeader extends React.Component {
                   </div>
                 </Col>
 
-                <Col xs={6} sm={6} md={8} lg={8}>
+                <Col xs={7} sm={7} md={9} lg={9}>
 
                   <GlobalHeaderMenu navData={navData} location={location}/>
 
                 </Col>
 
-                <Col xs={6} sm={6} md={8} lg={8}>
+                <Col xs={5} sm={5} md={7} lg={7}>
                   <GlobalHeaderSearch/>
                 </Col>
 
