@@ -82,7 +82,16 @@ const BaseRoutes = app => [
             id: 'menu.account.order',
             key: 'order',
             path: 'order',
+            exact: true,
             component: dynamicWrapper(app, [], () => import('../pages/Account/AccountOrder')),
+          },
+          {
+            name: '订单详情',
+            id: 'menu.account.order.detail',
+            key: 'order-detail',
+            path: 'order/:id',
+            isHide: true,
+            component: dynamicWrapper(app, [], () => import('../pages/Account/AccountOrderDetail')),
           },
           {
             name: '我的评价',
@@ -110,7 +119,7 @@ const BaseRoutes = app => [
             id: 'menu.account.course',
             key: 'course',
             path: 'course',
-            component: dynamicWrapper(app, [], () => import('../pages/Account/AccountCourse')),
+            component: dynamicWrapper(app, [], () => import('../pages/Account/AccountCreateCourse')),
           },
         ]
       },

@@ -14,15 +14,18 @@ export default function AccountMenu ({ routes }) {
       <ul>
         {
           routes.children.map(item => (
-            <li key={item.path} >
-              <NavLink
-                activeClassName={styles.active}
-                to={`/${routes.path}/${item.path}`}
-              >
-                <span>{item.name}</span>
-                <Icon type="right" />
-              </NavLink>
-            </li>
+            item.isHide ?
+              null
+              :
+              <li key={item.path} >
+                <NavLink
+                  activeClassName={styles.active}
+                  to={`/${routes.path}/${item.path}`}
+                >
+                  <span>{item.name}</span>
+                  <Icon type="right" />
+                </NavLink>
+              </li>
           ))
         }
       </ul>

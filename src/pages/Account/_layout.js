@@ -72,7 +72,7 @@ export default class _layout extends React.Component {
                 <AccountBreadcrumb routes={Routes}/>
 
                 <div className={styles.main}>
-                  <Row>
+                  <Row gutter={40}>
 
                     <Col xs={0} sm={0} md={7} lg={6} xl={6}>
                       <div className={styles.slide}>

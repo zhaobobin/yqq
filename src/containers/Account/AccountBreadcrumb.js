@@ -4,9 +4,12 @@ import { Breadcrumb } from 'antd';
 import styles from './AccountBreadcrumb.less'
 
 function getCurrentRoute (routes, item) {
-  let name = '个人中心';
+  let name = '订单详情';
   for(let i in routes){
-    if(routes[i].path === item) {
+    if(item === 'account'){
+      name = '个人中心'
+    }
+    if(item === routes[i].path) {
       name = routes[i].name
     }
   }

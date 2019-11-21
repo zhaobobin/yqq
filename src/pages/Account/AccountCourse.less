@@ -1,0 +1,47 @@
+@import '../../theme/index.less';
+
+.container{
+
+  padding: 8px 0;
+
+  .item{
+    display: block;
+    margin-bottom: 45px;
+    border-radius: 4px;
+    overflow: hidden;
+
+    &:hover .thumb{
+      opacity: 0.9
+    }
+
+    .thumb{
+      width: 100%;
+      height: auto;
+      transition: all .3s;
+    }
+    .title{
+      margin: 8px 0 6px;
+      color: #282D39;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight:600;
+    }
+    .foot{
+      padding-left: 38px;
+      position: relative;
+      .avatar{
+        margin: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .info{
+        margin: 0;
+        line-height: 18px;
+        font-size: 12px;
+        color: #898F9C;
+      }
+    }
+  }
+
+}
