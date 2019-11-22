@@ -1,0 +1,63 @@
+@import '../../theme/index.less';
+
+.container{
+
+  .head{
+    margin-top: 60px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #E5E5E6;
+    h1{
+      margin: 0;
+      font-size: 20px;
+      font-weight: 600;
+      color: #282D39;
+    }
+  }
+
+  .body{
+    .item{
+      margin-bottom: 34px;
+      a{
+        display: block;
+        box-shadow: @box_shadow;
+        border-radius: 6px;
+        border: 1px solid #E5E5E6;
+        overflow: hidden;
+
+        .thumb{
+          width: 100%;
+          height: auto;
+        }
+        p{
+          margin: 0;
+          &.title{
+            padding: 30px 24px 15px;
+            font-size: 24px;
+            color: #282D39;
+            font-weight:600;
+            transition: all .3s;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+          }
+          &.desc{
+            display: -webkit-box;
+            padding: 15px 24px 30px;
+            font-size: 16px;
+            color: #898F9C;
+            line-height: 22px;
+            text-align: justify;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+          }
+        }
+        &:hover .title{
+          color: @link_hover;
+        }
+      }
+    }
+  }
+
+}

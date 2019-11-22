@@ -7,7 +7,7 @@ export default class _layout extends React.Component {
     return(
 
       <div>
-        Join
+        机构入驻
       </div>
 
     )

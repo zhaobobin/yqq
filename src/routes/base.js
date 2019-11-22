@@ -44,16 +44,64 @@ const BaseRoutes = app => [
         isHide: true,
         component: dynamicWrapper(app, [], () => import('../pages/Category/_layout')),
         children: [
-          // {
-          //   name: '',
-          //   id: 'menu.category.index',
-          //   key: 'category-index',
-          //   path: 'index',
-          //   exact: true,
-          //   component: dynamicWrapper(app, [], () => import('../pages/Home/Home')),
-          // },
+          {
+            name: '',
+            id: 'menu.category.index',
+            key: 'category-index',
+            path: 'index',
+            exact: true,
+            component: dynamicWrapper(app, [], () => import('../pages/Category/CategoryIndex')),
+          },
+          {
+            name: '课程列表',
+            id: 'menu.category.course.list',
+            key: 'course-list',
+            path: 'course/:tag',
+            exact: true,
+            component: dynamicWrapper(app, [], () => import('../pages/Course/CourseList')),
+          },
+          {
+            name: '课程详情',
+            id: 'menu.category.course.detail',
+            key: 'course-detail',
+            path: 'course/:tag/:id',
+            exact: true,
+            component: dynamicWrapper(app, [], () => import('../pages/Course/CourseDetail')),
+            children: [
+              {
+                name: '课程介绍',
+                id: 'menu.category.course.detail.introduce',
+                key: 'course-detail-introduce',
+                path: 'introduce',
+                component: dynamicWrapper(app, [], () => import('../pages/Course/CourseDetailIntroduce')),
+              },
+              {
+                name: '课程目录',
+                id: 'menu.category.course.detail.directory',
+                key: 'course-detail-directory',
+                path: 'directory',
+                component: dynamicWrapper(app, [], () => import('../pages/Course/CourseDetailDirectory')),
+              },
+              {
+                name: '课程笔记',
+                id: 'menu.category.course.detail.routes',
+                key: 'course-detail-routes',
+                path: 'routes',
+                component: dynamicWrapper(app, [], () => import('../pages/Course/CourseDetailRoutes')),
+              }
+            ]
+          },
+          {
+            name: '课程播放',
+            id: 'menu.category.course.lesson',
+            key: 'course-lesson',
+            path: 'lesson/:id',
+            exact: true,
+            component: dynamicWrapper(app, [], () => import('../pages/Course/CourseLesson')),
+          },
         ]
       },
+
       {
         name: '机构入驻',
         id: 'menu.join',

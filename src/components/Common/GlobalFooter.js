@@ -40,7 +40,7 @@ export default function GlobalFooter (props) {
 
             <Col xs={24} sm={24} md={20} lg={20}>
               <div className={styles.copyright}>
-                <p><span>Copyright &#169 2019 Quzu. All Rights Reserved.</span></p>
+                <p><span>Copyright &copy; 2019 Quzu. All Rights Reserved.</span></p>
                 <p>
                   <span>北京趣族科技有限公司有限公司 版权所有</span>
                   <span>|</span>

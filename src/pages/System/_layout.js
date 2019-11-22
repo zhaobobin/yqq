@@ -7,7 +7,7 @@ export default class _layout extends React.Component {
     return(
 
       <div>
-        System
+        课程体系
       </div>
 
     )

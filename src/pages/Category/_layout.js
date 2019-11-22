@@ -1,8 +1,9 @@
 import React from 'react';
-import { Row, Col } from 'antd'
+import { Route, Redirect, Switch } from 'dva/router';
+import NotFound from "@/pages/Other/404";
 
-import LoadLazy from '@/components/Common/LoadLazy'
-import CategoryBanner from '@/containers/Category/CategoryBanner'
+import RouteExtend from '@/components/Common/RouteExtend'
+const Routes = RouteExtend('category');
 
 export default class _layout extends React.Component {
 
@@ -10,27 +11,20 @@ export default class _layout extends React.Component {
 
     return(
 
-      <div>
-
-        <LoadLazy height="300">
-          <CategoryBanner/>
-        </LoadLazy>
-
-        <Row>
-
-          <Col xs={0} sm={2} md={2} lg={2} xl={4}/>
-
-          <Col xs={24} sm={20} md={20} lg={20} xl={16}>
-
-
-
-          </Col>
-
-          <Col xs={0} sm={2} md={2} lg={2} xl={4}/>
-
-        </Row>
-
-      </div>
+      <Switch>
+        {
+          Routes.children.map(item => (
+            <Route
+              exact={item.exact}
+              key={item.path}
+              path={`/${Routes.path}/${item.path}`}
+              component={item.component}
+            />
+          ))
+        }
+        <Redirect exact from='/category' to='/category/index' />
+        <Route component={NotFound} />
+      </Switch>
 
     )
   }
