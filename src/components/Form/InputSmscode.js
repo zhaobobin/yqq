@@ -159,13 +159,13 @@ export default class InputSmscode extends React.Component {
 
   //发送验证码
   sendSmsCode = () => {
-    let {mobile} = this.props;
+    let {mobile, isrepeat} = this.props;
     this.props.dispatch({
-      type: 'global/post',
-      url: 'api/smsCode',
+      type: 'global/request',
+      url: '/user/get_code',
       payload: {
-        mobile,
-        userType: 'user'
+        tel: mobile,
+        isrepeat
       },
       callback: (res) => {
         if (res.status === 1) {

@@ -242,6 +242,7 @@ export default class UserRegister extends React.Component {
                 ]
               })(
                 <InputSmscode
+                  isrepeat="1"
                   mobile={Validator.hasErrors(getFieldsError(['mobile'])) ? '' : getFieldValue('mobile')}
                   prefix={<Icon type="mail" style={{ color: '#FFC010' }} />}
                   callback={this.smscodeCallback}

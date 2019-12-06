@@ -285,6 +285,7 @@ export default class UserLogin extends React.Component {
                     ]
                   })(
                     <InputSmscode
+                      isrepeat="3"
                       tel={Validator.hasErrors(getFieldsError(['mobile'])) ? '' : getFieldValue('mobile')}
                       callback={this.smscodeCallback}
                     />

@@ -5,12 +5,11 @@
 
 module.exports = {
 
-  api_base: '/api/v1',
+  api_base: '/api',
 
   api: {
-    old: 'http://127.0.0.1:8080',  // express
-    test: 'http://127.0.0.1:7001', // egg
-    pro: 'http://www.metuwang.com',
+    test: 'http://api.yqqedu.com',
+    pro: 'http://api.yqqedu.com',
   },
 
   info: {

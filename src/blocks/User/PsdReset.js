@@ -182,7 +182,7 @@ export default class PsdReset extends React.Component {
     this.props.form.validateFields(['mobile'], (err, values) => {
       if(!err){
         this.props.dispatch({
-          type: 'global/post',
+          type: 'global/request',
           url: 'api/v1/user/checkPhone',
           payload: {
             mobile: values.mobile
@@ -235,7 +235,7 @@ export default class PsdReset extends React.Component {
     this.props.form.validateFields(['password', 'rpassword'], (err, values) => {
       if (!err) {
         this.props.dispatch({
-          type: 'global/post',
+          type: 'global/request',
           url: 'api/resetPsd',
           payload:{
             mobile,
@@ -318,6 +318,7 @@ export default class PsdReset extends React.Component {
             })(
               <InputSmscode
                 // auto={true}
+                isrepeat="2"
                 mobile={hasErrors(getFieldsError(['mobile'])) ? '' : getFieldValue('mobile')}
                 callback={this.smscodeCallback}
               />
