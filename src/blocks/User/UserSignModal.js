@@ -27,7 +27,13 @@ export default class UserSignModal extends React.Component {
     this.setUserModal(false, '1');
   };
 
-  registerCallback = () => {
+  registerCallback = (uid) => {
+    this.props.dispatch({
+      type: 'global/userinfo',
+      payload: {
+        uid
+      },
+    });
     this.setUserModal(false, '2');
   };
 

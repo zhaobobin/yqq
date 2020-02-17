@@ -40,11 +40,13 @@ export default function GlobalFooter (props) {
 
             <Col xs={24} sm={24} md={20} lg={20}>
               <div className={styles.copyright}>
-                <p><span>Copyright &copy; 2019 Quzu. All Rights Reserved.</span></p>
+                <p><span>{ENV.info.copyright}</span></p>
                 <p>
-                  <span>北京趣族科技有限公司有限公司 版权所有</span>
+                  <span>{ENV.info.company} 版权所有</span>
                   <span>|</span>
-                  <span>京备ICP 1234567890</span>
+                  <span>
+                    <a href="http://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">{ENV.info.beian}</a>
+                  </span>
                   <span>|</span>
                   <span><Link to="/">问题反馈</Link></span>
                   <span>|</span>

@@ -82,7 +82,7 @@ export default class UserSign extends React.Component {
               onVisibleChange={this.onVisibleChange}
             >
               <Link to="/account" className={styles.user}>
-                <span className={styles.username}>{currentUser.nickname}</span>
+                <span className={styles.username}>{currentUser.uname || ''}</span>
                 {
                   currentUser.avatar_url ?
                     <Avatar className={styles.avatar} src={currentUser.avatar_url + '?x-oss-process=style/thumb_s'} size={30} />

@@ -70,16 +70,22 @@ export default function Request(url, options) {
   } else {
     newOptions.headers = {
       'Accept': 'application/json',
-      'Content-Type': 'application/json; charset=utf-8',
+      'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
       ...newOptions.headers,
     };
-    newOptions.body = JSON.stringify(newOptions.body);
+    // newOptions.body = JSON.stringify(newOptions.body);
+    let params = "";
+    for(let i in options.body){
+      params += i + "=" + options.body[i] + "&";
+    }
+    params = params.substring(0, params.length - 1);
+    newOptions.body = params;
   }
 
   // HttpBasicAuth
-  if(Storage.get(ENV.storage.token)) {
-    newOptions.headers['Authorization'] = 'Basic ' + Base64.encode(Storage.get(ENV.storage.token) + ':'); //读取本地token
-  }
+  // if(Storage.get(ENV.storage.token)) {
+  //   newOptions.headers['Authorization'] = 'Basic ' + Base64.encode(Storage.get(ENV.storage.token) + ':'); //读取本地token
+  // }
 
   return fetch(url, newOptions)
     .then(checkStatus)

@@ -9,7 +9,7 @@ function getCurrentRoute (routes, item) {
     if(item === 'account'){
       name = '个人中心'
     }
-    if(item === routes[i].path) {
+    if(item === routes[i].key) {
       name = routes[i].name
     }
   }
@@ -22,6 +22,7 @@ export default function AccountBreadcrumb ({ routes }) {
 
   const extraBreadcrumbItems = pathSnippets.map((item, index) => {
     const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
+    console.log(item)
     return (
       <Breadcrumb.Item key={url}>
         <NavLink to={url} activeClassName={styles.active}>

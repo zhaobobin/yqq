@@ -66,7 +66,7 @@ export default class InputSmscode extends React.Component {
     this.ajaxFlag = true;
     this.state = {
       value: '',            //输入框的值
-      maxLength: 6,
+      maxLength: 4,
       mobile: '',
       btnText: '获取验证码',
       btnStyle: styles.null,
@@ -168,7 +168,7 @@ export default class InputSmscode extends React.Component {
         isrepeat
       },
       callback: (res) => {
-        if (res.status === 1) {
+        if (res.code === '0') {
           this.interval();                                      //执行倒计时
           this.props.callback('', 'clearError');
           Toast.info(`已将短信验证码发送到您${filterTel(mobile)}的手机当中，请注意查收！`, 2);

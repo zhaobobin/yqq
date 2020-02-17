@@ -24,9 +24,9 @@ module.exports = {
     hotline: '',
     email: '',
     icp: '',
-    beian: '',
-    company: '',
-    copyright: '',
+    beian: '京ICP备19053490号-1',
+    company: '北京易启趣教育科技有限公司',
+    copyright: 'Copyright © 2019 Quzu. All Rights Reserved.',
     slogan: '',
     web: '',
     worktime: '9:00-17:30',
@@ -34,7 +34,8 @@ module.exports = {
   },
 
   storage: {
-    token: 'yqqIndex-token',
+    oauth_token: 'yqqIndex-oauth-token',
+    oauth_token_secret: 'yqqIndex-oauth-token-secret',
     lastTel: 'yqqIndex-lastTel',
     remenber: 'yqqIndex-remenber',
     routerHistory: 'yqqIndex-routerHistory',

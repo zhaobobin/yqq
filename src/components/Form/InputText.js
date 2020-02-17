@@ -35,7 +35,7 @@ export default class InputText extends React.Component {
       <Input
         size="large"
         autoComplete="off"
-        placeholder={this.props.placeholder}
+        placeholder={this.props.placeholder || '请输入'}
         onChange={this.changeValue}
         value={value}
         maxLength={maxLength}

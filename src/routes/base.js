@@ -169,6 +169,30 @@ const BaseRoutes = app => [
             path: 'course',
             component: dynamicWrapper(app, [], () => import('../pages/Account/AccountCreateCourse')),
           },
+          {
+            name: '用户认证',
+            id: 'menu.account.auth',
+            key: 'auth',
+            path: 'auth',
+            exact: true,
+            component: dynamicWrapper(app, [], () => import('../pages/Account/AccountAuth')),
+          },
+          {
+            name: '申请个人认证',
+            id: 'menu.account.auth.personal',
+            key: 'personal',
+            path: 'auth/personal',
+            isHide: true,
+            component: dynamicWrapper(app, [], () => import('../pages/Account/AccountAuthPersonal')),
+          },
+          {
+            name: '申请企业认证',
+            id: 'menu.account.auth.company',
+            key: 'company',
+            path: 'auth/company',
+            isHide: true,
+            component: dynamicWrapper(app, [], () => import('../pages/Account/AccountAuthCompany')),
+          },
         ]
       },
 

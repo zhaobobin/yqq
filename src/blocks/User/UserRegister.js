@@ -5,6 +5,7 @@ import React from 'react';
 import { connect } from 'dva';
 import { routerRedux } from 'dva/router';
 import { Form, Button, Icon } from 'antd';
+import { Toast } from 'antd-mobile';
 import { Validator, Encrypt } from '@/utils';
 import styles from './UserSign.less'
 
@@ -37,14 +38,14 @@ export default class UserRegister extends React.Component {
   mobileCallback = (value, err) => {
     if(err){
       this.props.form.setFields({
-        'mobile': {
+        'tel': {
           value: value,
           errors: [new Error(err)]
         }
       });
     }else{
-      this.props.form.setFieldsValue({'mobile': value});
-      // this.props.form.validateFields(['mobile'], (err, values) => {});
+      this.props.form.setFieldsValue({'tel': value});
+      // this.props.form.validateFields(['tel'], (err, values) => {});
     }
   };
 
@@ -53,7 +54,7 @@ export default class UserRegister extends React.Component {
     //清空错误提示
     if(err === 'mobileError'){
       this.props.form.setFields({
-        'mobile': {
+        'tel': {
           value: '',
           errors: [new Error('请输入手机号')]
         }
@@ -61,7 +62,7 @@ export default class UserRegister extends React.Component {
     }
     else if(err === 'clearError'){
       this.props.form.setFields({
-        'smscode': {
+        'code': {
           value: '',
           errors: ''
         }
@@ -69,15 +70,15 @@ export default class UserRegister extends React.Component {
     }
     else if(err === 'smscodeError'){
       this.props.form.setFields({
-        'smscode': {
+        'code': {
           value: '',
           errors: [new Error(!value ? '请输入短信验证码' : '短信验证码格式有误')]
         }
       });
     }
     else{
-      this.props.form.setFieldsValue({'smscode': value});
-      // this.props.form.validateFields(['smscode'], (err, values) => {});
+      this.props.form.setFieldsValue({'code': value});
+      // this.props.form.validateFields(['code'], (err, values) => {});
     }
   };
 
@@ -101,7 +102,7 @@ export default class UserRegister extends React.Component {
 
     this.props.form.validateFields('', (err, values) => {
       if (!err) {
-        values.password = Encrypt(values.tel, values.password);
+        // values.password = Encrypt(values.tel, values.password);
         this.register(values);
       }
       setTimeout(() => { this.ajaxFlag = true }, 500);
@@ -149,15 +150,16 @@ export default class UserRegister extends React.Component {
       type: 'global/register',
       payload: data,
       callback: (res) => {
-        if (res.code === 0) {
-          this.props.callback();
+        if (res.code === '0') {
+          this.props.callback(res.data.uid);
         }else{
-          this.props.form.setFields({
-            [res.error_key]: {
-              value: '',
-              errors: [new Error(res.message)]
-            }
-          });
+          Toast.info(res.msg, 2);
+          // this.props.form.setFields({
+          //   [res.error_key]: {
+          //     value: '',
+          //     errors: [new Error(res.message)]
+          //   }
+          // });
         }
       }
     });
@@ -166,9 +168,9 @@ export default class UserRegister extends React.Component {
   setInputError = (status, msg) => {
     let key;
     switch(status){
-      case 20001: key = 'mobile'; break;
+      case 20001: key = 'tel'; break;
       case 20002: key = 'password'; break;
-      case 20004: key = 'smscode'; break;
+      case 20004: key = 'code'; break;
       default: break;
     }
     this.props.form.setFields({
@@ -209,7 +211,7 @@ export default class UserRegister extends React.Component {
 
           <Form onSubmit={this.submit} className={styles.register}>
             <FormItem>
-              {getFieldDecorator('mobile', {
+              {getFieldDecorator('tel', {
                 rules: [
                   { required: true, message: '请输入手机号' }
                 ],
@@ -236,14 +238,14 @@ export default class UserRegister extends React.Component {
             </FormItem>
 
             <FormItem>
-              {getFieldDecorator('smscode', {
+              {getFieldDecorator('code', {
                 rules: [
                   { required: true, message: '请输入验证码' },
                 ]
               })(
                 <InputSmscode
                   isrepeat="1"
-                  mobile={Validator.hasErrors(getFieldsError(['mobile'])) ? '' : getFieldValue('mobile')}
+                  mobile={Validator.hasErrors(getFieldsError(['tel'])) ? '' : getFieldValue('tel')}
                   prefix={<Icon type="mail" style={{ color: '#FFC010' }} />}
                   callback={this.smscodeCallback}
                 />
@@ -267,9 +269,9 @@ export default class UserRegister extends React.Component {
               style={{marginBottom: '10px'}}
               disabled={
                 Validator.hasErrors(getFieldsError()) ||
-                !getFieldValue('mobile') ||
+                !getFieldValue('tel') ||
                 !getFieldValue('password') ||
-                !getFieldValue('smscode') ||
+                !getFieldValue('code') ||
                 !getFieldValue('xieyi')
               }
             >

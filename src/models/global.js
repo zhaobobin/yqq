@@ -29,16 +29,9 @@ export default {
         (params) => {return Request('/user/register', {method: 'POST', body: params})},
         payload
       );
-      if(res.code === 0){
-        yield put({
-          type: 'changeLoginStatus',
-          payload: {
-            loading: false,
-            isAuth: true,
-            currentUser: res.data.currentUser,
-          }
-        });
-        Storage.set(ENV.storage.token, res.data.token);              //保存token
+      if(res.code === '0'){
+        Storage.set(ENV.storage.oauth_token, res.data.oauth_token);                 //保存token
+        Storage.set(ENV.storage.oauth_token_secret, res.data.oauth_token_secret);   //用户身份密钥
       }
       yield callback(res);
     },
@@ -48,32 +41,32 @@ export default {
         (params) => {return Request('/user/login', {method: 'POST', body: params})},
         payload
       );
-      if(res.code === 0){
+      if(res.code === '0'){
         yield put({
           type: 'changeLoginStatus',
           payload: {
             loading: false,
             isAuth: true,
-            currentUser: res.data.detail,
+            currentUser: res.data,
           }
         });
-        Storage.set(ENV.storage.lastTel, payload.mobile);              //保存token
-        Storage.set(ENV.storage.token, res.data.token);              //保存token
+        Storage.set(ENV.storage.lastTel, payload.tel);                           //保存mobile
+        Storage.set(ENV.storage.oauth_token, res.data.oauth_token);                 //保存token
+        Storage.set(ENV.storage.oauth_token_secret, res.data.oauth_token_secret);   //用户身份密钥
       }
       yield callback(res);
     },
 
     *token({ payload }, { call, put }) {
-
       //没有本地存储，不校验token接口
-      if(Storage.get(ENV.storage.token)) {
+      if(Storage.get(ENV.storage.oauth_token)) {
 
         const res = yield call(
-          (params) => {return Request('/user/token', {method: 'POST', body: params})},
+          (params) => {return Request('/user/get_code_user_info', {method: 'POST', body: params})},
           payload
         );
 
-        if(res.code === 0){
+        if(res.code === '0'){
           yield put({
             type: 'changeLoginStatus',
             payload: {
@@ -128,14 +121,14 @@ export default {
       // }
     },
 
-    *userinfo({ url, payload }, { call, put }) {
+    *userinfo({ payload }, { call, put }) {
       const res = yield call(
-        (params) => {return Request(url, {method: 'GET', body: params})},
+        (params) => {return Request('/user/getuser', {method: 'POST', body: params})},
         payload
       );
-      if(res.code === 0){
+      if(res.code === '0'){
         yield put({
-          type: 'changeProfileUser',
+          type: 'changeCurrentUser',
           payload: res.data,
         });
       }else{
@@ -149,7 +142,7 @@ export default {
         (params) => {return Request('/user', {method: 'POST', body: params})},
         payload
       );
-      if(res.code === 0){
+      if(res.code === '0'){
         yield callback(res);
         yield put({
           type: 'changeCurrentUser',
@@ -171,11 +164,11 @@ export default {
           (params) => {return Request(url, {method: method || 'POST', body: params})},
           payload
         );
-        if(res.code === 0 && exp) Storage.set(url, res);
+        if(res.code === '0' && exp) Storage.set(url, res);
       }
 
       //登录过期等
-      if(res.code === 401){
+      if(res.code === '401'){
         Storage.remove(ENV.storage.token);              //删除token
         notification.error({
           message: '提示',

@@ -5,6 +5,7 @@ import React from 'react';
 import { connect } from 'dva';
 import { routerRedux } from 'dva/router';
 import { Form, Icon, Button, Checkbox } from 'antd';
+import { Toast } from 'antd-mobile';
 import { ENV, Storage, Validator, Encrypt } from '@/utils';
 import styles from './UserSign.less';
 
@@ -13,8 +14,8 @@ import InputPassword from '@/components/Form/InputPassword'
 import InputSmscode from '@/components/Form/InputSmscode'
 
 const FormItem = Form.Item;
-const keys1 = ['mobile', 'password'];
-const keys2 = ['mobile', 'smscode'];
+const keys1 = ['tel', 'pwd'];
+const keys2 = ['tel', 'code'];
 
 @connect(state => ({
   global: state.global
@@ -55,13 +56,13 @@ export default class UserLogin extends React.Component {
   mobileCallback = (value, err) => {
     if(err){
       this.props.form.setFields({
-        'mobile': {
+        'tel': {
           value: value,
           errors: [new Error(err)]
         }
       });
     }else{
-      this.props.form.setFieldsValue({'mobile': value});
+      this.props.form.setFieldsValue({'tel': value});
     }
   };
 
@@ -69,14 +70,14 @@ export default class UserLogin extends React.Component {
   passwordCallback = (value, err) => {
     if(err){
       this.props.form.setFields({
-        'password': {
+        'pwd': {
           value: value,
           errors: [new Error(err)]
         }
       });
     }else{
-      this.props.form.setFieldsValue({'password': value});
-      // this.props.form.validateFields(['password'], (err, values) => {});
+      this.props.form.setFieldsValue({'pwd': value});
+      // this.props.form.validateFields(['pwd'], (err, values) => {});
     }
   };
 
@@ -85,7 +86,7 @@ export default class UserLogin extends React.Component {
     //清空错误提示
     if(err === 'telError'){
       this.props.form.setFields({
-        'mobile': {
+        'tel': {
           value: '',
           errors: [new Error('请输入手机号')]
         }
@@ -94,7 +95,7 @@ export default class UserLogin extends React.Component {
     }
     else if(err === 'clearError'){
       this.props.form.setFields({
-        'smscode': {
+        'code': {
           value: '',
           errors: ''
         }
@@ -103,7 +104,7 @@ export default class UserLogin extends React.Component {
     }
     else if(err === 'smscodeError'){
       this.props.form.setFields({
-        'smscode': {
+        'code': {
           value: '',
           errors: [new Error(!value ? '请输入短信验证码' : '短信验证码格式有误')]
         }
@@ -136,12 +137,12 @@ export default class UserLogin extends React.Component {
 
       if (!err) {
         if(values.remember){
-          Storage.set(ENV.storage.lastTel, values.mobile)
+          Storage.set(ENV.storage.lastTel, values.tel)
         }else{
           Storage.set(ENV.storageLastTel, '')
         }
-        if(values.password) values.password = Encrypt(values.mobile, values.password);
-        if(values.smscode) values.smscode = Encrypt(values.mobile, values.smscode);
+        // if(values.pwd) values.pwd = Encrypt(values.tel, values.pwd);
+        // if(values.smscode) values.smscode = Encrypt(values.tel, values.smscode);
         values.loginType = loginType;
         this.login(values);
       }
@@ -155,15 +156,16 @@ export default class UserLogin extends React.Component {
       type: 'global/login',
       payload: values,
       callback: (res) => {
-        if(res.code === 0) {
+        if(res.code === '0') {
           this.props.callback();
         }else{
-          this.props.form.setFields({
-            [res.error_key]: {
-              value: '',
-              errors: [new Error(res.message)]
-            }
-          });
+          Toast.info(res.msg, 2);
+          // this.props.form.setFields({
+          //   [res.error_key]: {
+          //     value: '',
+          //     errors: [new Error(res.message)]
+          //   }
+          // });
         }
       }
     });
@@ -172,9 +174,9 @@ export default class UserLogin extends React.Component {
   setInputError = (status, msg) => {
     let key;
     switch(status){
-      case 10001: key = 'mobile'; break;
-      case 10002: key = 'password'; break;
-      case 10003: key = 'mobile'; break;
+      case 10001: key = 'tel'; break;
+      case 10002: key = 'pwd'; break;
+      case 10003: key = 'tel'; break;
       case 10004: key = 'smscode'; break;
       default: break;
     }
@@ -246,7 +248,7 @@ export default class UserLogin extends React.Component {
           <Form onSubmit={this.submit}>
 
             <FormItem>
-              {getFieldDecorator('mobile', {
+              {getFieldDecorator('tel', {
                 initialValue: lastTel,
                 rules: [
                   { required: true, message: '请输入手机号' },
@@ -264,7 +266,7 @@ export default class UserLogin extends React.Component {
             {
               loginType === 'psd' ?
                 <FormItem>
-                  {getFieldDecorator('password', {
+                  {getFieldDecorator('pwd', {
                     validateFirst: true,
                     rules: [
                       { required: true, message: '请输入密码' },
@@ -286,7 +288,7 @@ export default class UserLogin extends React.Component {
                   })(
                     <InputSmscode
                       isrepeat="3"
-                      tel={Validator.hasErrors(getFieldsError(['mobile'])) ? '' : getFieldValue('mobile')}
+                      tel={Validator.hasErrors(getFieldsError(['tel'])) ? '' : getFieldValue('tel')}
                       callback={this.smscodeCallback}
                     />
                   )}
@@ -305,8 +307,8 @@ export default class UserLogin extends React.Component {
               style={{marginBottom: '20px'}}
               disabled={
                 Validator.hasErrors(getFieldsError()) ||
-                !getFieldValue('mobile') ||
-                !getFieldValue(loginType === 'psd' ? 'password' : 'smscode')
+                !getFieldValue('tel') ||
+                !getFieldValue(loginType === 'psd' ? 'pwd' : 'smscode')
               }
             >
               登录
