@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'dva';
-import { Form, Icon, Button, Checkbox } from 'antd';
+import { Form, Icon, Button, Upload } from 'antd';
 import { Toast } from 'antd-mobile';
 import { ENV, Storage, Validator, Encrypt } from '@/utils';
 import styles from './AccountAuth.less'
