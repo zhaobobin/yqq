@@ -7,6 +7,7 @@ import styles from './AccountAuth.less'
 
 import InputText from '@/components/Form/InputText'
 import InputMobile from '@/components/Form/InputMobile'
+import UploadIdcard from '@/components/Form/UploadIdcard'
 
 const FormItem = Form.Item;
 
@@ -113,6 +114,10 @@ export default class AccountAuthPersonal extends React.Component {
       );
     }
   };
+
+  uploadIdcardCallback = (data) => {
+    console.log(data)
+  }
 
   // 确定
   submit = (e) => {
@@ -233,17 +238,11 @@ export default class AccountAuthPersonal extends React.Component {
                   { required: true, message: '请上传法人身份证（人像面）' },
                 ],
               })(
-                <Upload
-                  name="avatar"
-                  listType="picture-card"
-                  className="avatar-uploader"
-                  showUploadList={false}
-                  action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-                  beforeUpload={beforeUpload}
-                  onChange={this.handleUploadChange}
-                >
-                  {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
-                </Upload>
+                <UploadIdcard
+                  key="positive"
+                  type="1"
+                  callback={this.uploadIdcardCallback}
+                />
               )}
             </FormItem>
 
@@ -253,17 +252,11 @@ export default class AccountAuthPersonal extends React.Component {
                   { required: true, message: '请上传法人身份证（国徽面）' },
                 ],
               })(
-                <Upload
-                  name="avatar"
-                  listType="picture-card"
-                  className="avatar-uploader"
-                  showUploadList={false}
-                  action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-                  beforeUpload={beforeUpload}
-                  onChange={this.handleUploadChange}
-                >
-                  {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
-                </Upload>
+                <UploadIdcard
+                  key="positive"
+                  type="2"
+                  callback={this.uploadIdcardCallback}
+                />
               )}
             </FormItem>
 

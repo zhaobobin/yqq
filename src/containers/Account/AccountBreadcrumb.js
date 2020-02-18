@@ -22,7 +22,6 @@ export default function AccountBreadcrumb ({ routes }) {
 
   const extraBreadcrumbItems = pathSnippets.map((item, index) => {
     const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
-    console.log(item)
     return (
       <Breadcrumb.Item key={url}>
         <NavLink to={url} activeClassName={styles.active}>
