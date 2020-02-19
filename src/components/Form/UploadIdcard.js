@@ -28,6 +28,7 @@ export default class UploadIdcard extends React.Component {
     this.state = {
       loading: false,
       type: props.type,
+      imgUrl: '',
       modalVisible: false
     };
   }
@@ -68,39 +69,43 @@ export default class UploadIdcard extends React.Component {
 
     if(!this.ajaxFlag) return;
     this.ajaxFlag = false;
-console.log(file)
+
     this.setState({ loading: true, url: '' });
 
     file2base64(file, data => {
       this.upload(data.url)
     });
-
+    setInterval(() => { this.ajaxFlag = true }, 500);
   };
 
   upload = (base64) => {
-    console.log(base64)
     const { uid } = this.props.global.currentUser;
-    const { key, type, callback } = this.props;
+    const { field, type, callback } = this.props;
 
     this.props.dispatch({
       type: 'global/request',
-      url: '/my/identity',
+      url: '/user/identity',
       payload: {
         uid,
         type,
         image: base64
       },
-      callback: (url) => {
-        callback({ key, url });                   // 给父组件传值
-        this.setState({ loading: true, url: url });
-        this.ajaxFlag = true;
+      callback: (res) => {
+        if(res.code === '0') {
+          callback({ field, data: res.data });                   // 给父组件传值
+          this.setState({
+            loading: true,
+            url: res.data,
+            imgUrl: base64,
+          });
+        }
       }
     });
   }
 
   render(){
 
-    const { loading, type, url, modalVisible } = this.state;
+    const { loading, type, imgUrl, modalVisible } = this.state;
 
     const idcardImg = type === '1' ?
       require('@/assets/account/idcard02.jpeg')
@@ -119,8 +124,8 @@ console.log(file)
             customRequest={this.handleUpload}
           >
             {
-              url ?
-                <img src={url + '?x-oss-process=style/thumb_s'} width="auto" height="102px" />
+              imgUrl ?
+                <img src={imgUrl} width="auto" height="102px" />
                 :
                 <div>
                   <Icon type={loading ? 'loading' : 'plus'} />
@@ -132,7 +137,7 @@ console.log(file)
         <Col span={10}>
           <p className={styles.example} onClick={this.showModal}>
             <img src={idcardImg} alt="example"/>
-            <span>示例图 +</span>
+            <span>示例图</span>
           </p>
           <Modal
             title="身份证示例"

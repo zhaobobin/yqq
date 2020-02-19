@@ -53,18 +53,21 @@ export default class AccountMenuDrawer extends React.Component {
           <ul>
             {
               routes.children.map(item => (
-                <li
-                  key={item.path}
-                  onClick={this.toggle}
-                >
-                  <NavLink
-                    activeClassName={styles.active}
-                    to={`/${routes.path}/${item.path}`}
+                item.isHide ?
+                  null
+                  :
+                  <li
+                    key={item.path}
+                    onClick={this.toggle}
                   >
-                    <span>{item.name}</span>
-                    <Icon type="right" />
-                  </NavLink>
-                </li>
+                    <NavLink
+                      activeClassName={styles.active}
+                      to={`/${routes.path}/${item.path}`}
+                    >
+                      <span>{item.name}</span>
+                      <Icon type="right" />
+                    </NavLink>
+                  </li>
               ))
             }
           </ul>

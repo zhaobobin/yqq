@@ -70,16 +70,10 @@ export default function Request(url, options) {
   } else {
     newOptions.headers = {
       'Accept': 'application/json',
-      'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+      'Content-Type': 'application/json; charset=utf-8',
       ...newOptions.headers,
     };
-    // newOptions.body = JSON.stringify(newOptions.body);
-    let params = "";
-    for(let i in options.body){
-      params += i + "=" + options.body[i] + "&";
-    }
-    params = params.substring(0, params.length - 1);
-    newOptions.body = params;
+    newOptions.body = JSON.stringify(newOptions.body);
   }
 
   // HttpBasicAuth
