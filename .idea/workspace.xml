@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="26a481ed-3937-46f1-b208-e348def66dfc" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/home/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/common.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Table/TableInit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Table/TableShowTotal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Account/TeacherAdd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Account/TeacherManage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/env.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Account/AccountMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Account/AccountMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/global.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Account/AccountTeacher.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Account/AccountTeacher.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Account/_layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Account/_layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/base.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsBowerSettings">
+    <exe-path>/usr/local/bin/bower</exe-path>
+    <config-path />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1680" />
+    <option name="height" value="960" />
+  </component>
+  <component name="ProjectId" id="1cZSO1GTzFqkV3Dg5Fj9aoeYhgF" />
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>AngularJS</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="HbShouldOpenHtmlAsHb" value="disabled" />
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="ejs.close.delimiter" value="%&gt;" />
+    <property name="ejs.open.delimiter" value="&lt;%" />
+    <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.jscs" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.path.for.package.stylelint" value="project" />
+    <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/node_modules/eslint" />
+    <property name="node.js.selected.package.jscs" value="" />
+    <property name="node.js.selected.package.standard" value="/usr/local/lib/node_modules/eslint" />
+    <property name="node.js.selected.package.stylelint" value="" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="/usr/local/bin/node" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="project.scopes" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/src/pages/Course" />
+      <recent name="$PROJECT_DIR$/src/containers/Course" />
+    </key>
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>$USER_HOME$/.subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="26a481ed-3937-46f1-b208-e348def66dfc" name="Default" comment="" />
+      <created>1573435022171</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1573435022171</updated>
+      <workItem from="1573435027643" duration="2031000" />
+      <workItem from="1573437872335" duration="7350000" />
+      <workItem from="1573523884618" duration="17469000" />
+      <workItem from="1573628857217" duration="1567000" />
+      <workItem from="1573735306326" duration="8112000" />
+      <workItem from="1574043526371" duration="1788000" />
+      <workItem from="1574170686879" duration="17000" />
+      <workItem from="1574217423709" duration="19054000" />
+      <workItem from="1574314305801" duration="12329000" />
+      <workItem from="1574388307718" duration="14829000" />
+      <workItem from="1575356488052" duration="1396000" />
+      <workItem from="1575623491036" duration="139000" />
+      <workItem from="1575860182763" duration="609000" />
+      <workItem from="1576047943160" duration="3374000" />
+      <workItem from="1576073240072" duration="7000" />
+      <workItem from="1576073249405" duration="1012000" />
+      <workItem from="1579249224747" duration="428000" />
+      <workItem from="1579249775698" duration="176000" />
+      <workItem from="1579250272002" duration="494000" />
+      <workItem from="1581838559309" duration="1746000" />
+      <workItem from="1581942612764" duration="5806000" />
+      <workItem from="1581994003697" duration="5958000" />
+      <workItem from="1582015720694" duration="555000" />
+      <workItem from="1582016592731" duration="25000" />
+      <workItem from="1582024272663" duration="527000" />
+      <workItem from="1582024921737" duration="358000" />
+      <workItem from="1582121246203" duration="3956000" />
+      <workItem from="1582940593807" duration="1492000" />
+      <workItem from="1583025388972" duration="579000" />
+      <workItem from="1583072920895" duration="1974000" />
+      <workItem from="1583659803816" duration="1189000" />
+      <workItem from="1583670949557" duration="66000" />
+      <workItem from="1583738777110" duration="2683000" />
+      <workItem from="1583742907051" duration="5370000" />
+      <workItem from="1583830337877" duration="134000" />
+      <workItem from="1583908330005" duration="2000" />
+      <workItem from="1590734593520" duration="226000" />
+      <workItem from="1611454305091" duration="779000" />
+    </task>
+    <task id="LOCAL-00001" summary="eqq">
+      <created>1574055357405</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1574055357405</updated>
+    </task>
+    <task id="LOCAL-00002" summary="yqq">
+      <created>1574263185726</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1574263185727</updated>
+    </task>
+    <task id="LOCAL-00003" summary="yqq">
+      <created>1574345346814</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1574345346814</updated>
+    </task>
+    <task id="LOCAL-00004" summary="yqq">
+      <created>1574407547232</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1574407547232</updated>
+    </task>
+    <task id="LOCAL-00005" summary="yqq">
+      <created>1574407578718</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1574407578719</updated>
+    </task>
+    <task id="LOCAL-00006" summary="yqq">
+      <created>1575623615613</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1575623615613</updated>
+    </task>
+    <task id="LOCAL-00007" summary="yqq">
+      <created>1581947455517</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1581947455517</updated>
+    </task>
+    <task id="LOCAL-00008" summary="account auth">
+      <created>1581948902115</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1581948902115</updated>
+    </task>
+    <task id="LOCAL-00009" summary="account auth">
+      <created>1582001769237</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1582001769237</updated>
+    </task>
+    <task id="LOCAL-00010" summary="account auth">
+      <created>1582125794763</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1582125794763</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="eqq" />
+    <MESSAGE value="yqq" />
+    <MESSAGE value="account auth" />
+    <option name="LAST_COMMIT_MESSAGE" value="account auth" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="457" y="180" key="#ESLint" timestamp="1611454360773">
+      <screen x="0" y="23" width="1680" height="963" />
+    </state>
+    <state x="457" y="180" key="#ESLint/0.23.1680.963@0.23.1680.963" timestamp="1611454360773" />
+    <state x="456" y="164" width="767" height="680" key="find.popup" timestamp="1611454409917">
+      <screen x="0" y="23" width="1680" height="963" />
+    </state>
+    <state x="456" y="164" width="767" height="680" key="find.popup/0.23.1680.963@0.23.1680.963" timestamp="1611454409917" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

@@ -1,16 +1,16 @@
 /**
- * 成为老师
+ * 添加教师
  */
 import React from 'react';
 
-export default class AccountTeacher extends React.Component {
+export default class TeacherAdd extends React.Component {
 
   render(){
 
     return(
 
       <div>
-        AccountTeacher
+        TeacherAdd
       </div>
 
     )

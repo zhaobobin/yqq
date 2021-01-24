@@ -6,7 +6,7 @@ import { NavLink } from 'dva/router';
 import { Icon } from 'antd'
 import styles from './AccountMenu.less';
 
-export default function AccountMenu ({ routes }) {
+export default function AccountMenu ({ routes, currentUser }) {
 
   return(
     <div className={styles.menu}>
@@ -14,7 +14,7 @@ export default function AccountMenu ({ routes }) {
       <ul>
         {
           routes.children.map(item => (
-            item.isHide ?
+            item.isHide || item.identity && item.identity !== currentUser.identity ?
               null
               :
               <li key={item.path} >

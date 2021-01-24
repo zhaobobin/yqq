@@ -30,6 +30,14 @@ export default {
         payload
       );
       if(res.code === '0'){
+        yield put({
+          type: 'changeLoginStatus',
+          payload: {
+            loading: false,
+            isAuth: true,
+            currentUser: res.data,
+          }
+        });
         Storage.set(ENV.storage.oauth_token, res.data.oauth_token);                 //保存token
         Storage.set(ENV.storage.oauth_token_secret, res.data.oauth_token_secret);   //用户身份密钥
       }

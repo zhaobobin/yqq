@@ -43,6 +43,7 @@ module.exports = {
     currentMenu: 'yqqIndex-currentMenu',
     userCenterTabKey: 'yqqIndex-userCenterTabKey',
     perPage: 'yqqIndex-perPage',
+    pageSize: 'yqqIndex-pageSize',
 
     wechatLoginState: 'yqqIndex-WechatLoginState', // 微信授权登录state
     weiboLoginState: 'yqqIndex-WeiboLoginState', // 微博授权登录state

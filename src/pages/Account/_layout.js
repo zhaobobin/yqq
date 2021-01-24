@@ -77,7 +77,7 @@ export default class _layout extends React.Component {
                     <Col xs={0} sm={0} md={7} lg={6} xl={6}>
                       <div className={styles.slide}>
                         <AccountInfo currentUser={currentUser}/>
-                        <AccountMenu routes={Routes}/>
+                        <AccountMenu routes={Routes} currentUser={currentUser}/>
                       </div>
                     </Col>
 
