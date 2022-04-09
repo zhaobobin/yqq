@@ -13,7 +13,7 @@
     "crypto-js": "^3.1.9-1",
     "dva": "^2.4.1",
     "js-base64": "^2.5.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "react": "^16.11.0",
     "react-amap": "^1.2.8",
     "react-document-title": "^2.0.3",
